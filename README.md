@@ -110,9 +110,7 @@ sudo docker pull ros:humble-perception
    1\. Instala los drivers de NVIDIA para tu sistema desde:  
    [https://www.nvidia.com/en-us/drivers](https://www.nvidia.com/en-us/drivers)  
      
-   2\. Instala CUDA Toolkit desde:  
-   Manual de instalación: Entorno de Robótica en Docker (Ubuntu 20.04/22.04)  
-      
+   2\. Instala CUDA Toolkit desde:        
    [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)  
      
    (Asegúrate de no reinstalar los drivers si ya lo hiciste en el paso anterior)  
