@@ -1,0 +1,22 @@
+[0.688s] Invoking command in '/shared-folder/ros2_ws/src/joints_act': PYTHONPATH=/shared-folder/ros2_ws/build/joints_act/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joints_act build --build-base /shared-folder/ros2_ws/build/joints_act/build install --record /shared-folder/ros2_ws/build/joints_act/install.log --single-version-externally-managed install_data
+[0.831s] running egg_info
+[0.832s] writing ../../build/joints_act/joints_act.egg-info/PKG-INFO
+[0.832s] writing dependency_links to ../../build/joints_act/joints_act.egg-info/dependency_links.txt
+[0.832s] writing entry points to ../../build/joints_act/joints_act.egg-info/entry_points.txt
+[0.832s] writing requirements to ../../build/joints_act/joints_act.egg-info/requires.txt
+[0.833s] writing top-level names to ../../build/joints_act/joints_act.egg-info/top_level.txt
+[0.834s] reading manifest file '../../build/joints_act/joints_act.egg-info/SOURCES.txt'
+[0.834s] adding license file 'LICENSE'
+[0.835s] writing manifest file '../../build/joints_act/joints_act.egg-info/SOURCES.txt'
+[0.835s] running build
+[0.835s] running build_py
+[0.835s] running install
+[0.835s] running install_lib
+[0.836s] running install_data
+[0.836s] running install_egg_info
+[0.838s] removing '/shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act-0.0.0-py3.10.egg-info' (and everything under it)
+[0.838s] Copying ../../build/joints_act/joints_act.egg-info to /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act-0.0.0-py3.10.egg-info
+[0.838s] running install_scripts
+[0.858s] Installing joint_pub script to /shared-folder/ros2_ws/install/joints_act/lib/joints_act
+[0.858s] writing list of installed files to '/shared-folder/ros2_ws/build/joints_act/install.log'
+[0.894s] Invoked command in '/shared-folder/ros2_ws/src/joints_act' returned '0': PYTHONPATH=/shared-folder/ros2_ws/build/joints_act/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joints_act build --build-base /shared-folder/ros2_ws/build/joints_act/build install --record /shared-folder/ros2_ws/build/joints_act/install.log --single-version-externally-managed install_data

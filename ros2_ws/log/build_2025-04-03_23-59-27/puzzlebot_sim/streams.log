@@ -1,0 +1,37 @@
+[0.650s] Invoking command in '/shared-folder/ros2_ws/src/puzzlebot_sim': PYTHONPATH=/shared-folder/ros2_ws/build/puzzlebot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot_sim build --build-base /shared-folder/ros2_ws/build/puzzlebot_sim/build install --record /shared-folder/ros2_ws/build/puzzlebot_sim/install.log --single-version-externally-managed install_data
+[0.786s] running egg_info
+[0.786s] writing ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/PKG-INFO
+[0.786s] writing dependency_links to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/dependency_links.txt
+[0.786s] writing entry points to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/entry_points.txt
+[0.787s] writing requirements to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/requires.txt
+[0.787s] writing top-level names to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/top_level.txt
+[0.788s] reading manifest file '../../build/puzzlebot_sim/puzzlebot_sim.egg-info/SOURCES.txt'
+[0.788s] adding license file 'LICENSE'
+[0.789s] writing manifest file '../../build/puzzlebot_sim/puzzlebot_sim.egg-info/SOURCES.txt'
+[0.789s] running build
+[0.789s] running build_py
+[0.789s] copying puzzlebot_sim/joint_state_publisher.py -> /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim
+[0.790s] running install
+[0.790s] running install_lib
+[0.791s] copying /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim/joint_state_publisher.py -> /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim
+[0.791s] byte-compiling /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/joint_state_publisher.py to joint_state_publisher.cpython-310.pyc
+[0.791s] Sorry: IndentationError: expected an indented block after function definition on line 22 (joint_state_publisher.py, line 27)
+[0.791s] running install_data
+[0.791s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/launch
+[0.792s] copying launch/puzzlebot_launch.py -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/launch
+[0.792s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/config
+[0.792s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/rviz
+[0.792s] copying rviz/puzzlebot_rviz.rviz -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/rviz
+[0.792s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes
+[0.792s] copying meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes
+[0.792s] copying meshes/Puzzlebot_Caster_Wheel.stl -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes
+[0.792s] copying meshes/Puzzlebot_Wheel.stl -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes
+[0.792s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/urdf
+[0.792s] copying urdf/puzzlebot.urdf -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/urdf
+[0.792s] running install_egg_info
+[0.794s] removing '/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info' (and everything under it)
+[0.794s] Copying ../../build/puzzlebot_sim/puzzlebot_sim.egg-info to /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info
+[0.795s] running install_scripts
+[0.812s] Installing joint_state_publisher script to /shared-folder/ros2_ws/install/puzzlebot_sim/lib/puzzlebot_sim
+[0.813s] writing list of installed files to '/shared-folder/ros2_ws/build/puzzlebot_sim/install.log'
+[0.839s] Invoked command in '/shared-folder/ros2_ws/src/puzzlebot_sim' returned '0': PYTHONPATH=/shared-folder/ros2_ws/build/puzzlebot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot_sim build --build-base /shared-folder/ros2_ws/build/puzzlebot_sim/build install --record /shared-folder/ros2_ws/build/puzzlebot_sim/install.log --single-version-externally-managed install_data

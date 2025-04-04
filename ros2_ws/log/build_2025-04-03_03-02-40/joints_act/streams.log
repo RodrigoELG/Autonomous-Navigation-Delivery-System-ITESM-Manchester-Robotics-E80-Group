@@ -1,0 +1,45 @@
+[0.523s] Invoking command in '/shared-folder/ros2_ws/src/joints_act': PYTHONPATH=/shared-folder/ros2_ws/build/joints_act/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joints_act build --build-base /shared-folder/ros2_ws/build/joints_act/build install --record /shared-folder/ros2_ws/build/joints_act/install.log --single-version-externally-managed install_data
+[0.661s] running egg_info
+[0.661s] creating ../../build/joints_act/joints_act.egg-info
+[0.662s] writing ../../build/joints_act/joints_act.egg-info/PKG-INFO
+[0.662s] writing dependency_links to ../../build/joints_act/joints_act.egg-info/dependency_links.txt
+[0.662s] writing entry points to ../../build/joints_act/joints_act.egg-info/entry_points.txt
+[0.662s] writing requirements to ../../build/joints_act/joints_act.egg-info/requires.txt
+[0.662s] writing top-level names to ../../build/joints_act/joints_act.egg-info/top_level.txt
+[0.662s] writing manifest file '../../build/joints_act/joints_act.egg-info/SOURCES.txt'
+[0.663s] reading manifest file '../../build/joints_act/joints_act.egg-info/SOURCES.txt'
+[0.663s] adding license file 'LICENSE'
+[0.663s] writing manifest file '../../build/joints_act/joints_act.egg-info/SOURCES.txt'
+[0.664s] running build
+[0.664s] running build_py
+[0.664s] creating /shared-folder/ros2_ws/build/joints_act/build
+[0.664s] creating /shared-folder/ros2_ws/build/joints_act/build/lib
+[0.664s] creating /shared-folder/ros2_ws/build/joints_act/build/lib/joints_act
+[0.664s] copying joints_act/joint_pub.py -> /shared-folder/ros2_ws/build/joints_act/build/lib/joints_act
+[0.664s] copying joints_act/__init__.py -> /shared-folder/ros2_ws/build/joints_act/build/lib/joints_act
+[0.664s] running install
+[0.664s] running install_lib
+[0.665s] creating /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act
+[0.665s] copying /shared-folder/ros2_ws/build/joints_act/build/lib/joints_act/joint_pub.py -> /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act
+[0.665s] copying /shared-folder/ros2_ws/build/joints_act/build/lib/joints_act/__init__.py -> /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act
+[0.665s] byte-compiling /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act/joint_pub.py to joint_pub.cpython-310.pyc
+[0.665s] byte-compiling /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act/__init__.py to __init__.cpython-310.pyc
+[0.665s] running install_data
+[0.665s] creating /shared-folder/ros2_ws/install/joints_act/share/ament_index
+[0.665s] creating /shared-folder/ros2_ws/install/joints_act/share/ament_index/resource_index
+[0.665s] creating /shared-folder/ros2_ws/install/joints_act/share/ament_index/resource_index/packages
+[0.665s] copying resource/joints_act -> /shared-folder/ros2_ws/install/joints_act/share/ament_index/resource_index/packages
+[0.665s] copying package.xml -> /shared-folder/ros2_ws/install/joints_act/share/joints_act
+[0.665s] creating /shared-folder/ros2_ws/install/joints_act/share/joints_act/launch
+[0.666s] copying launch/fixed_launch.py -> /shared-folder/ros2_ws/install/joints_act/share/joints_act/launch
+[0.666s] creating /shared-folder/ros2_ws/install/joints_act/share/joints_act/config
+[0.666s] creating /shared-folder/ros2_ws/install/joints_act/share/joints_act/rviz
+[0.666s] creating /shared-folder/ros2_ws/install/joints_act/share/joints_act/meshes
+[0.666s] creating /shared-folder/ros2_ws/install/joints_act/share/joints_act/urdf
+[0.666s] copying urdf/fixed_ex.urdf -> /shared-folder/ros2_ws/install/joints_act/share/joints_act/urdf
+[0.666s] running install_egg_info
+[0.667s] Copying ../../build/joints_act/joints_act.egg-info to /shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages/joints_act-0.0.0-py3.10.egg-info
+[0.667s] running install_scripts
+[0.681s] Installing joint_pub script to /shared-folder/ros2_ws/install/joints_act/lib/joints_act
+[0.681s] writing list of installed files to '/shared-folder/ros2_ws/build/joints_act/install.log'
+[0.709s] Invoked command in '/shared-folder/ros2_ws/src/joints_act' returned '0': PYTHONPATH=/shared-folder/ros2_ws/build/joints_act/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/joints_act/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/joints_act build --build-base /shared-folder/ros2_ws/build/joints_act/build install --record /shared-folder/ros2_ws/build/joints_act/install.log --single-version-externally-managed install_data

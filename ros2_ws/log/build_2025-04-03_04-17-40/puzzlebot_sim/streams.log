@@ -1,0 +1,38 @@
+[0.674s] Invoking command in '/shared-folder/ros2_ws/src/puzzlebot_sim': PYTHONPATH=/shared-folder/ros2_ws/build/puzzlebot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot_sim build --build-base /shared-folder/ros2_ws/build/puzzlebot_sim/build install --record /shared-folder/ros2_ws/build/puzzlebot_sim/install.log --single-version-externally-managed install_data
+[0.805s] running egg_info
+[0.805s] creating ../../build/puzzlebot_sim/puzzlebot_sim.egg-info
+[0.805s] writing ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/PKG-INFO
+[0.805s] writing dependency_links to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/dependency_links.txt
+[0.806s] writing entry points to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/entry_points.txt
+[0.806s] writing requirements to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/requires.txt
+[0.806s] writing top-level names to ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/top_level.txt
+[0.806s] writing manifest file '../../build/puzzlebot_sim/puzzlebot_sim.egg-info/SOURCES.txt'
+[0.807s] reading manifest file '../../build/puzzlebot_sim/puzzlebot_sim.egg-info/SOURCES.txt'
+[0.807s] adding license file 'LICENSE'
+[0.807s] writing manifest file '../../build/puzzlebot_sim/puzzlebot_sim.egg-info/SOURCES.txt'
+[0.807s] running build
+[0.807s] running build_py
+[0.807s] creating /shared-folder/ros2_ws/build/puzzlebot_sim/build
+[0.807s] creating /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib
+[0.807s] creating /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim
+[0.807s] copying puzzlebot_sim/puzzlebot_tfs.py -> /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim
+[0.807s] copying puzzlebot_sim/__init__.py -> /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim
+[0.808s] running install
+[0.808s] running install_lib
+[0.808s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim
+[0.808s] copying /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim/puzzlebot_tfs.py -> /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim
+[0.808s] copying /shared-folder/ros2_ws/build/puzzlebot_sim/build/lib/puzzlebot_sim/__init__.py -> /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim
+[0.808s] byte-compiling /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/puzzlebot_tfs.py to puzzlebot_tfs.cpython-310.pyc
+[0.809s] byte-compiling /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/__init__.py to __init__.cpython-310.pyc
+[0.809s] running install_data
+[0.809s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/ament_index
+[0.809s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/ament_index/resource_index
+[0.809s] creating /shared-folder/ros2_ws/install/puzzlebot_sim/share/ament_index/resource_index/packages
+[0.809s] copying resource/puzzlebot_sim -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/ament_index/resource_index/packages
+[0.809s] copying package.xml -> /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim
+[0.809s] running install_egg_info
+[0.810s] Copying ../../build/puzzlebot_sim/puzzlebot_sim.egg-info to /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info
+[0.811s] running install_scripts
+[0.826s] Installing puzzlebot_tfs script to /shared-folder/ros2_ws/install/puzzlebot_sim/lib/puzzlebot_sim
+[0.827s] writing list of installed files to '/shared-folder/ros2_ws/build/puzzlebot_sim/install.log'
+[0.850s] Invoked command in '/shared-folder/ros2_ws/src/puzzlebot_sim' returned '0': PYTHONPATH=/shared-folder/ros2_ws/build/puzzlebot_sim/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/puzzlebot_sim build --build-base /shared-folder/ros2_ws/build/puzzlebot_sim/build install --record /shared-folder/ros2_ws/build/puzzlebot_sim/install.log --single-version-externally-managed install_data
