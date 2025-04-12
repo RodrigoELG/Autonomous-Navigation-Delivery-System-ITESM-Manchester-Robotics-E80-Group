@@ -132,7 +132,7 @@ Visualization Manager:
           Value: true
         world:
           Value: true
-      Marker Scale: 0.5
+      Marker Scale: 0.1
       Name: TF
       Show Arrows: true
       Show Axes: true

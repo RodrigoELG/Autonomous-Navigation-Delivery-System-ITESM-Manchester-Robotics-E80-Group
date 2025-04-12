@@ -27,7 +27,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'joint_state_publisher = puzzlebot_sim.joint_state_publisher:main'
-        ],
-    },
+            'frame_publisher = puzzlebot_sim.frame_publisher:main',
+            ],
+        }
+
+
+
 )

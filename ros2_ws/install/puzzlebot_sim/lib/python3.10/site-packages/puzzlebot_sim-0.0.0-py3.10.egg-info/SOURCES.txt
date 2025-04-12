@@ -10,11 +10,16 @@ setup.py
 ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/top_level.txt
 ../../build/puzzlebot_sim/puzzlebot_sim.egg-info/zip-safe
 launch/puzzlebot_launch.py
+meshes/MCR2_caster_wheel.stl
+meshes/MCR2_puzzlebot_base.stl
+meshes/MCR2_puzzlebot_jetson_base.stl
+meshes/MCR2_puzzlebot_jetson_lidar_base.stl
+meshes/MCR2_wheel.stl
 meshes/Puzzlebot_Caster_Wheel.stl
 meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl
 meshes/Puzzlebot_Wheel.stl
 puzzlebot_sim/__init__.py
-puzzlebot_sim/joint_state_publisher.py
+puzzlebot_sim/frame_publisher.py
 resource/puzzlebot_sim
 rviz/puzzlebot_rviz.rviz
 test/test_copyright.py

@@ -1,6 +1,6 @@
-/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/joint_state_publisher.py
+/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/frame_publisher.py
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/__init__.py
-/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/__pycache__/joint_state_publisher.cpython-310.pyc
+/shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/__pycache__/frame_publisher.cpython-310.pyc
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim/__pycache__/__init__.cpython-310.pyc
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/ament_index/resource_index/packages/puzzlebot_sim
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/package.xml
@@ -8,8 +8,13 @@
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/config
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/rviz/puzzlebot_rviz.rviz
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl
+/shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/MCR2_puzzlebot_base.stl
+/shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/MCR2_puzzlebot_jetson_lidar_base.stl
+/shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/MCR2_caster_wheel.stl
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/Puzzlebot_Caster_Wheel.stl
+/shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/MCR2_wheel.stl
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/Puzzlebot_Wheel.stl
+/shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/meshes/MCR2_puzzlebot_jetson_base.stl
 /shared-folder/ros2_ws/install/puzzlebot_sim/share/puzzlebot_sim/urdf/puzzlebot.urdf
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info/zip-safe
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info/top_level.txt
@@ -18,4 +23,4 @@
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info/SOURCES.txt
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info/entry_points.txt
 /shared-folder/ros2_ws/install/puzzlebot_sim/lib/python3.10/site-packages/puzzlebot_sim-0.0.0-py3.10.egg-info/PKG-INFO
-/shared-folder/ros2_ws/install/puzzlebot_sim/lib/puzzlebot_sim/joint_state_publisher
+/shared-folder/ros2_ws/install/puzzlebot_sim/lib/puzzlebot_sim/frame_publisher
