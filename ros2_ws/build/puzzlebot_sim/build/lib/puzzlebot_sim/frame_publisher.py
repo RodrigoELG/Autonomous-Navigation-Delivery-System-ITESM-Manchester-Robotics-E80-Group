@@ -12,8 +12,8 @@ class FramePublisher(Node):
         super().__init__('frame_publisher')
         
         # Pose inicial del robot
-        self.initial_pos_x = 1.0
-        self.initial_pos_y = 1.0
+        self.initial_pos_x = 0.0
+        self.initial_pos_y = 0.0
         self.initial_pos_z = 0.0
         self.initial_pos_yaw = 0.0
         

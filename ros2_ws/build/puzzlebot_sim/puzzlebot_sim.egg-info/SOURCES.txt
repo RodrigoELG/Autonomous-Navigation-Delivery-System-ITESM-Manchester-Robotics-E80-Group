@@ -19,7 +19,10 @@ meshes/Puzzlebot_Caster_Wheel.stl
 meshes/Puzzlebot_Jetson_Lidar_Edition_Base.stl
 meshes/Puzzlebot_Wheel.stl
 puzzlebot_sim/__init__.py
-puzzlebot_sim/frame_publisher.py
+puzzlebot_sim/joint_state_pub.py
+puzzlebot_sim/localisation.py
+puzzlebot_sim/point_stabilisation_control.py
+puzzlebot_sim/puzzlebot_sim.py
 resource/puzzlebot_sim
 rviz/puzzlebot_rviz.rviz
 test/test_copyright.py
