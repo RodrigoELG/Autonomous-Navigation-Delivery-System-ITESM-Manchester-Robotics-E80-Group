@@ -16,4 +16,13 @@ Luis Mario Lozoya Chairez	 		|A00833364|
 
 Tareas:
 
-1) Actividad de Fotogrametria 100% Completada 
+1) Actividad de Fotogrametria 100% Completada
+
+Comandos basicos:
+
+Inicializar mi contenedor y entrar con el usuario de robotics. 
+sudo docker start -ai ros2-humble-robotics-cuda
+su - robotics 
+
+Dirección de mi ws: cd ~/ros2_ws 
+
