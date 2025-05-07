@@ -36,9 +36,9 @@ Comandos para inicializar y correr mi imagen de docker de interfaz:
 4) conda activate te300xb
    
  Correr los primero dos codigos dentro de la carpeta 1 
- /linux-pt1/ROS-Obj..
+/linux-pt1/ROS-Obj..
 5) python3 ros2-object-detection.py
- /linux-pt1/PY-RPC..
+/linux-pt1/PY-RPC..
 6) python3 ros2-grpc-wrapper.py
    
  Correr los primero dos codigos dentro de la carpeta 2
