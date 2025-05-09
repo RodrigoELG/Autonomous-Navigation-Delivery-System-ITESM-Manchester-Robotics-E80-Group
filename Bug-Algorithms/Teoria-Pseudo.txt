@@ -1,0 +1,180 @@
+Comprendiendo Bug-Algorithms desde 0
+
+Tecnicas y Algoritmos de evación de Obstaculos
+
+Offline vs Online 
+
+Offline: el robot (Puzzle-Bot) tiene el plano completo del entorno (mapa) y en este caso planifica o da con la ruta optima desde ates de llevar a cabo cualquier accion de movimiento.(A*)
+EXPLORAR LOS OFFLINE (A*, A ponderado*, D*/D* Lite, LPA*, Anytime A*, Multiheuristic A*)
+
+Online: el robot (Puzzle-Bot) no conoce el plano (mapa) en este caso es usan sensores (lidar, proximidad, ultrasonido) en tiempo real. (Bug-Algorithms)
+
+
+Idea General de "Bug-Algorithms"
+Algoritmos Online muy generales para la evasion de obstaculos. La mayoria de los Bug-Algorithms siguen el mismo funcionamiento a veces sufriendo de algunas variables:
+
+1. Ir directo: el robot avanza en línea recta hacia la meta.
+
+2. Detectar choque: si el sensor  detecta un obstáculo, el robot entra en modo de "contorno".
+
+3. Contour following: el robot “pega” su costado al obstáculo y recorre su borde, siguiendo la pared hasta encontrar un punto adecuado para retomar la línea o camino al objetivo.
+
+4. Reiniciar avance: una vez en ese punto, sale del contorno y vuelve a ir directo a meta.
+
+¿Como saber que tipo de Bug-Algorithm usar? 
+La diferencia dentro de los distintos tipos de algorimos recae en donde y cuando van a dejar de seguir el borde para regresar a la linea que dirige hacia la meta.
+Hay dos principales versiones, ambas siendo muy basicas, Bug1 "Estrategia Exhaustiva" y Bug2 "Línea de Meta".
+
+Bug 1 (Estrategia exhaustiva)
+    Funcionamiento:
+        1. Avanzar hasta chocar
+        2. Rodea el obstaculo por completo hasta regresar al punto de origen (donde choco).
+        3. Durante el recorrido al contorno del obstaculo calcula y registra cual fue el punto mas cercano a la meta.
+        4. Una vez termiando el recorrido y estando en el punto de origen navega hasta el punto cercano guardado.
+        5. Retoma el movimiento hacia la meta.
+    
+    Simple de implementar, llega siempre y cuando exista el camino.
+    Muy ineficiente, requiere de rodear todo el obstaculo.
+    Es mejor donde el sistema es con sensores de contacto.
+
+Bug 2 (Línea de meta)
+    Funcionamiento:
+        1. Avanzar hacia la meta hasta chocar
+        2. Rodea el obstaculo hasta entrar en contacto con "la m-line" en un punto más cercano al punto de origen del contacto con el obstaculo.
+        3. Retoma el movimiento hacia la meta.
+
+    Mas eficinete que Bug1, no rodea el objetivo completo.
+    Si el espacio o mapa es muy irregular y la linea-m se cruza multiĺes veces puede ocacionar errores.
+    Ideal para obstrucción por objetos convexos. 
+    Robots con odometría precisa para detectar cruces de la línea.
+
+
+Angle Bug y variables como futura mejor opcion.
+Este tipo de algoritmo combina criterios de otros dos; Dist-Bug y Tangent-Bug.
+    Dist-Bug:
+    Mientras rodea, mide la distancia a la meta con un sensor (lidar). Cuando ve el punto de contorno con mínima distancia, sale.
+    Ideal para comportamiento “corto” sin odometría.
+    Tangent-Bug:
+    Para cada ángulo de escaneo, detecta si la meta es “visible” (línea de vista libre). Sale en el primer ángulo donde se cumpla la condicion.
+    Muy bueno en escenarios con obstáculos dispersos, porque aprovecha visión angular continua.
+
+Lo ideal del Angle-Bug es que funciona eligiendo puntos de salida basados en umbrales de distancia y visibilidad.
+Es buena opcion cuando ni la mínima distancia ni la mera visibilidad son suficientes por sí solas.
+
+
+Mate detras de los BUG-ALGORITHMS 
+
+------------------------------------------------------------------------------------------------------------------------
+*** GEOMETRIA EUCLADIANA EN EL PLANO ***
+Posición del Robot (x,y) 
+Distancia eucladiana      ___________________________
+                d(P,Q) = V (xQ - xP)² -  (yQ - yP)²
+
+m-linea = Linea que une inicio con meta 
+                        yg - ys 
+                (y−ys​)= -------- (x - xs)
+                        xg - xs 
+
+                     x
+Vector de Posición (---)
+                     y
+
+Vector de direccion hacia la meta
+         1
+v = ------------(Pg - Pr)
+    ||Pg - Pr||
+
+Producto escalar para calcular ángulos a ⋅ b = ∥a∥ ∥b∥ cos⁡θ
+
+Representacion parametrica de las curvas 
+Cuando el robot “sigue la pared” recorre el contorno:
+c(s)=(x(s),y(s)),s∈[0,L]
+donde LL es la longitud del borde que sigue.
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+Bug1 Estrategia Exhaustiva Desarrollo de la Logica y el Pseudo Codigo 
+
+***LOGICA DE FUNCIONAMIENTO***
+Inicio
+
+    El robot conoce su posición inicial "S" y la meta "G".
+
+    Define la “m-line”.
+
+Movimiento hacia la meta
+
+    Se orienta en dirección a "G".
+
+    Avanza en línea recta hasta que detecta un obstaculo (sensor de contacto, distancia, etc).
+
+Registro del punto de impacto
+
+    Guarda la posición de choque Pimpacto​.
+
+    Inicializa un registro de:
+        “mejor punto” Pmin⁡​ = punto sobre el borde mas cercano a "G"
+        distancia a meta = dmin⁡. Distancia eucladiana desde Pmin a "G"
+
+Contour following (seguimiento de contorno)
+
+    A partir de Pimpacto, activa el seguir la pared o borde del obstaculo a la derecha (o izquierda) siempre manteniendo contacto con el mismo.
+
+    Mientras recorre el contorno, en cada instante p:
+
+            Calcula d = ∥p−G∥ 
+
+            Si d < dmin⁡​, actualiza dmin⁡ = d y Pmin ⁡= p
+
+            Sigue hasta volver exactamente a Pimpacto
+
+Salida del contorno
+
+    Se posiciona en Pmin⁡.
+
+    Apaga modo “rodear obstaculo” y retoma avance directo hacia GG.
+
+Repetir
+
+    Si vuelve a chocar, repite los pasos desde el Registro De Punto De Impacto.
+
+
+***PSEUDO***
+
+Función BUG1(S, G):
+  posición = S
+  Mientras posición ≠ G:
+    # Ir directo a G (meta)
+    OrientarHacia(G)
+    Mientras no Choque():
+      Avanzar()
+      Si posición == G:
+        Print “Llegó a meta”
+    FinLoopMientras
+
+    # Registro del impacto
+    P_impacto = posición
+    P_min     = P_impacto
+    d_min     = Distancia(P_impacto, G)
+
+    # Seguir el contorno completo
+    IniciarSeguirContorno(dirección = “derecha”) #o dirección izquierda
+    Repetir:
+      SeguirBorde()
+      posición_actual = posición
+      d_actual = Distancia(posición_actual, G)
+      Si d_actual < d_min:
+        d_min = d_actual
+        P_min = posición_actual
+    Hasta Que posición_actual == P_impacto
+    DetenerLoopSeguirContorno()
+
+    # Ir al mejor punto encontrado
+    IrA(P_min)
+  FinMientras
+  Retornar “Llegó a meta”
