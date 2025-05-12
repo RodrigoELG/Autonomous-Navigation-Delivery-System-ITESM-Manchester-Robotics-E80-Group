@@ -7,6 +7,23 @@
 
 Integración de robótica y sistemas inteligentes
 
+
+### **Control connect the motors to Jetson:**
+
+`ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB#`
+*#: Is the USB port your hacker-board is connected. You can check by typing.*
+`ls -l ttyUSB*`
+
+
+### Run the LiDAR
+
+`ros2 launch sllidar_ros2 view_sllidar_a1_launch.py`
+*or if you want to see it in rviz:*
+`ros2 launch sllidar_ros2 view_sllidar_a1_launch.py`
+
+
+
+
 **Actividad 0\. Preparación**
 
 José Pablo Cedano Serna  			|A00832019|  
