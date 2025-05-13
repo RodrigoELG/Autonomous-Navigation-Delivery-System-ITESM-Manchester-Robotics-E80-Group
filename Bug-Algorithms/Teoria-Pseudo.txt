@@ -65,6 +65,8 @@ Es buena opcion cuando ni la mínima distancia ni la mera visibilidad son sufici
 Mate detras de los BUG-ALGORITHMS 
 
 ------------------------------------------------------------------------------------------------------------------------
+
+
 *** GEOMETRIA EUCLADIANA EN EL PLANO ***
 Posición del Robot (x,y) 
 Distancia eucladiana      ___________________________
@@ -90,11 +92,6 @@ Representacion parametrica de las curvas
 Cuando el robot “sigue la pared” recorre el contorno:
 c(s)=(x(s),y(s)),s∈[0,L]
 donde LL es la longitud del borde que sigue.
-
-
-
-
-
 
 
 --------------------------------------------------------------------------------------------------------------------------
