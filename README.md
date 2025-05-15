@@ -1,189 +1,234 @@
-# integracion-de-robotica-y-sistemas-inteligentes
 
- **Instituto Tecnológico y de Estudios Superiores de Monterrey**  
- Campus Monterrey
+# 🧩 Puzzlebot Jetson Edition – Guía de Conexión y Ejecución
 
-![][image1]
+**Instituto Tecnológico y de Estudios Superiores de Monterrey**  
+**Campus Monterrey**  
+**Curso: Integración de Robótica y Sistemas Inteligentes**
 
-Integración de robótica y sistemas inteligentes
+---
 
+## 🖥️ 1. Configuración del Entorno de Desarrollo (Local o Docker)
 
-### **Control connect the motors to Jetson:**
+Esta sección es para configurar tu computadora local o un entorno en contenedor (Docker) para trabajar con ROS2 y el ecosistema del Puzzlebot.
 
-`ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB#`
-*#: Is the USB port your hacker-board is connected. You can check by typing.*
-`ls -l ttyUSB*`
+---
 
+### 🐳 Opción A: Docker con ROS2 (Recomendado para entornos reproducibles)
 
-### Run the LiDAR
+#### Paso 1: Requisitos previos
 
-`ros2 launch sllidar_ros2 view_sllidar_a1_launch.py`
-*or if you want to see it in rviz:*
-`ros2 launch sllidar_ros2 view_sllidar_a1_launch.py`
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y nano tmux terminator mesa-utils htop curl gnupg lsb-release
+```
 
+#### Paso 2: Instalar Docker Engine
 
+```bash
+sudo apt-get install -y ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
+```
 
-**Actividad 0\. Preparación**
+#### Paso 3: Verificar Docker
 
-José Pablo Cedano Serna  			|A00832019|  
-Rodrigo Escandón López Guerrero   	|A01704287|  
-Luis Antonio Zermeño De Gorordo 	|A01781835|  
-Luis Mario Lozoya Chairez	 		|A00833364|
+```bash
+sudo docker run hello-world
+```
 
-## **Requisitos previos:**
+---
 
-0\. Tener instalado Ubuntu 20.04 o 22.04  
-1\. Asegúrate de tener privilegios de superusuario (sudo).  
-2\. Actualiza tu sistema:  
- sudo apt update && sudo apt upgrade \-y  
-3\. Instala herramientas útiles:  
- sudo apt install \-y nano tmux terminator mesa-utils htop curl gnupg lsb-release
+### 🧪 Git y Visual Studio Code
 
-##  **Instalación de Docker Engine:**
+```bash
+sudo apt install -y git
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@dominio.com"
 
-1\. Configura el repositorio:  
- sudo apt-get install \-y ca-certificates curl gnupg  
- sudo install \-m 0755 \-d /etc/apt/keyrings  
- curl \-fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg \--dearmor \-o /etc/apt/keyrings/docker.gpg  
-echo "deb \[arch=$(dpkg \--print-architecture) signed-by=/etc/apt/keyrings/docker.gpg\] https://download.docker.com/linux/ubuntu $(lsb\_release \-cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list \> /dev/null
+sudo snap install code --classic
+```
 
-2\. Instala Docker:  
- sudo apt-get update  
- sudo apt-get install \-y docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-buildx-plugin
+Extensiones recomendadas:
+- Docker
+- Remote - Containers
+- GitLens
+- Python
+- ROS
 
-3\. Verifica la instalación:  
- sudo docker run hello-world
+---
 
-**Instalación y uso básico de Git:**
+### 🐢 ROS2 en Docker
 
-1\. Instala Git:  
-sudo apt install \-y git
-
-2\. Configura tus credenciales:  
- git config \--global user.name "Tu Nombre"  
- git config \--global user.email "[tuemail@dominio.com](mailto:tuemail@dominio.com)"
-
- **Flujo de trabajo recomendado:**  
- **git clone https://github.com/\<organización\>/\<repo\>.git**  
- **cd \<repo\>**  
- **git checkout \-b tu-branch**  
- **git add .**  
- **git commit \-m "Descripción del cambio"**  
- **git push origin tu-branch**  
-**Sincroniza con main:**  
- **git checkout main**  
- **git pull origin main**  
- **git checkout tu-branch**  
- **git merge main**
-
-## **Instalación de Visual Studio Code:**
-
-Instala VSCode:  
- sudo snap install code \--classic  
-Extensiones recomendadas:  
- \- Docker  
- \- Remote \- Containers  
- \- GitLens  
- \- Python  
- \- ROS
-
-## **Instalación de ROS2 (Humble) en Docker:**
-
-1. Descarga de la imagen oficial:
-
+```bash
 sudo docker pull ros:humble-perception
 
-2. Crear contenedor con permisos especiales:  
-   sudo docker run \--network="host" \\  
-   \-v /dev/shm:/dev/shm \\  
-   \-v /tmp/.X11-unix:/tmp/.X11-unix \\  
-   \-v \~/robotica:/shared-folder \\  
-   \-it \--privileged \--name ros2-humble-robotics ros:humble-perception  
-     
-3. Recomendaciones dentro del contenedor:  
-   apt-get update  
-   apt-get install \-y sudo nano tmux terminator mesa-utils htop  
-     
-4. Crear usuario:  
-   adduser robotics  
-   usermod \-aG sudo robotics  
-     
-5. Configurar el entorno gráfico:  
-   echo 'export DISPLAY=:0' \>\> /home/robotics/.bashrc  
-     
-6. Guardar el contenedor como imagen:  
-   sudo docker run \--network="host" \\  
-   \-v /dev/shm:/dev/shm \\  
-   \-v /tmp/.X11-unix:/tmp/.X11-unix \\  
-   \-v \~/robotica:/shared-folder \\  
-   \--user=1000:1000 \\  
-   \-it \--privileged \\  
-   \--name ros2-humble-robotics tu\_usuario/robotica:ros2-humble  
-     
-     
-   **Integración con CUDA:**  
-     
-   1\. Instala los drivers de NVIDIA para tu sistema desde:  
-   [https://www.nvidia.com/en-us/drivers](https://www.nvidia.com/en-us/drivers)  
-     
-   2\. Instala CUDA Toolkit desde:        
-   [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)  
-     
-   (Asegúrate de no reinstalar los drivers si ya lo hiciste en el paso anterior)  
-     
-   3\. Instala NVIDIA Container Toolkit:  
-   sudo apt install \-y nvidia-container-toolkit  
-   sudo systemctl restart docker  
-     
-   4\. Ejecuta el contenedor con acceso a GPU:  
-    sudo docker run \--gpus all \--runtime=nvidia \--network="host" \\  
-    \-v /dev/shm:/dev/shm \-v /tmp/.X11-unix:/tmp/.X11-unix \\  
-    \-v \~/robotica:/shared-folder \-it \--privileged \\  
-    \--name ros2-humble-cuda ros:humble-perception  
-     
-   5\. Configurar el entorno gráfico  
-     
-   4\. Permite conexiones al servidor gráfico desde el contenedor: (Ejecutar en el host antes de iniciar el contenedor)  
-   xhost \+local:root  
-     
-   Dentro del contenedor, asegúrate de que la variable de entorno DISPLAY esté configurada:  
-   echo $DISPLAY  
-     
-   Si el resultado está vacío, configura manualmente la variable:  
-   export DISPLAY=:\<DISPLAY\>  
-     
-     
-     
-   **Validación del entorno:**  
-   Verifica Docker:  
-     
-   docker \--version  
-   docker info  
-     
-   Verifica Git:  
-   git \--version  
-   git config \--list  
-     
-   Verifica VSCode:  
-   code .  
-     
-   Verifica GPU:  
-   nvidia-smi  
-     
-   Verifica ROS2 dentro del contenedor:  
-    ros2 \--version
+sudo docker run --network="host" \
+-v /dev/shm:/dev/shm \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v ~/robotica:/shared-folder \
+-it --privileged --name ros2-humble-robotics ros:humble-perception
+```
 
-## **Comandos útiles de Docker**
+Configuraciones opcionales dentro del contenedor:
+```bash
+apt-get update && apt-get install -y sudo nano tmux terminator mesa-utils htop
+adduser robotics
+usermod -aG sudo robotics
+echo 'export DISPLAY=:0' >> /home/robotics/.bashrc
+```
 
-| *Acción* | *Comando* |
-| ----- | ----- |
-| Ver contenedores activos | docker ps |
-| Entrar a un contenedor | sudo docker attach \<nombre\> |
-| Detach (salir sin matar el contenedor) | Ctrl+P \+ Ctrl+Q |
-| Guardar cambios | sudo docker commit \<nombre\> \<usuario/imagen:nombre\> |
-| Eliminar contenedor | sudo docker rm \<nombre\> |
-| Ver imágenes locales | sudo docker images |
-| Borrar imagen	 | sudo docker rmi \<usuario/imagen:nombre\>  |
+---
 
-[image1]: <data:image/png;base64,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>
+### ⚙️ Integración con GPU (CUDA)
+
+1. Instala drivers y CUDA desde [https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads)
+2. Instala `nvidia-container-toolkit`:
+```bash
+sudo apt install -y nvidia-container-toolkit
+sudo systemctl restart docker
+```
+3. Ejecuta contenedor con acceso a GPU:
+
+```bash
+xhost +local:root
+
+sudo docker run --gpus all --runtime=nvidia --network="host" \
+-v /dev/shm:/dev/shm \
+-v /tmp/.X11-unix:/tmp/.X11-unix \
+-v ~/robotica:/shared-folder \
+-it --privileged \
+--name ros2-humble-cuda ros:humble-perception
+```
+
+---
+
+### ✅ Validación del entorno
+
+```bash
+docker --version
+docker info
+git --version
+git config --list
+code .
+nvidia-smi
+ros2 --version
+```
+
+---
+
+### 🧰 Comandos útiles de Docker
+
+| Acción                      | Comando                                     |
+| --------------------------- | ------------------------------------------- |
+| Ver contenedores activos    | `docker ps`                                 |
+| Entrar a un contenedor      | `sudo docker attach <nombre>`               |
+| Salir sin cerrar contenedor | `Ctrl+P` + `Ctrl+Q`                         |
+| Guardar cambios             | `sudo docker commit <nombre> <usuario/img>` |
+| Eliminar contenedor         | `sudo docker rm <nombre>`                   |
+| Ver imágenes locales        | `sudo docker images`                        |
+| Borrar imagen               | `sudo docker rmi <usuario/imagen>`          |
+## 🔌 2. Conexión de Hardware
+
+1. **Conectar Hackerboard (ESP32) al Jetson Nano**  
+   - Usa un cable **USB a micro-USB**.  
+   - Alimenta ambos con **PowerBanks independientes** (5V, 3A mínimo por puerto).
+
+2. **Sensores y Periféricos al Jetson Nano**
+   - Conecta el **LiDAR SLLIDAR A1** a un puerto USB.
+   - Conecta el **módulo Wi-Fi**.
+
+---
+
+## 📶 3. Conexión de Red
+
+1. Enciende el Puzzlebot.  
+   El Hackerboard emitirá una red Wi-Fi (el **SSID aparece en la pantalla OLED**).
+2. Desde tu PC:
+   - Conéctate a esa red Wi-Fi.
+   - Asegúrate de que el **Jetson Nano también esté en esa red**.
+
+3. Accede a la **interfaz web del Hackerboard** (opcional):  
+   ```
+   http://192.168.1.1
+   ```
+
+---
+
+## 🖥️ 4. Acceso Remoto al Jetson Nano
+
+```bash
+ssh puzzlebot@192.168.1.#
+```
+- Reemplaza `#` con el número de IP (usualmente entre 2 y 10).
+- Contraseña por defecto: `Puzzlebot72`
+
+---
+
+## 🧠 5. Iniciar micro-ROS Agent
+
+```bash
+ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB#
+```
+
+> Verifica el puerto con:
+```bash
+ls -l /dev/ttyUSB*
+```
+
+---
+
+## 🚀 6. Ejecutar el LiDAR
+
+```bash
+ros2 launch sllidar_ros2 sllidar_a1_launch.py
+```
+
+### Visualización con RViz2:
+
+```bash
+ros2 launch sllidar_ros2 view_sllidar_a1_launch.py
+```
+
+> ❗ Si aparece un error **TIMEOUT**, desconecta y vuelve a conectar el LiDAR.
+
+---
+
+## 🎮 7. Teleoperar Puzzlebot
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+---
+
+## 🗺️ 8. Crear y Guardar Mapa SLAM
+
+Este launch corre el puzzlebot con `slam_toolbox`:
+
+```bash
+ros2 launch puzzlebot_sim puzzlebot_mapping_launch.py
+```
+
+### Visualización con RViz2 (solo si estás en Jetson con interfaz gráfica):
+
+```bash
+ros2 launch puzzlebot_sim view_puzzlebot_mapping_launch.py
+```
+
+---
+
+## 📷 9. Activar Cámara del Puzzlebot (CSI)
+
+Dentro del Jetson Nano:
+
+```bash
+ros2 launch ros_deep_learning video_source.ros2.launch input_width:=1920 input_height:=1080 input_framerate:=15
+```
+
+---
+
+
