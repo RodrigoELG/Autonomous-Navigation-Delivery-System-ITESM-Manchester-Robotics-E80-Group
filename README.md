@@ -17,6 +17,12 @@ Luis Mario Lozoya Chairez	 		|A00833364|
 Tareas:
 
 1) Actividad de Fotogrametria 100% Completada
+2) Bug Algorithms 
+Referencias utiles:
+https://www.youtube.com/watch?v=FUjHgDvn6s0
+https://utkuolcar.com/Blog/2021/1/10/bug-algorithm-application-using-ros-robotik-operating-system
+https://github.com/ManchesterRoboticsLtd/TE3003B_Integration_of_Robotics_and_Intelligent_Systems_2025/blob/main/Week6/Presentations/PDF/MCR2_Reactive_Navigation.pdf
+https://www.youtube.com/watch?v=cnOBXyoFPVg
 
 Comandos basicos:
 
