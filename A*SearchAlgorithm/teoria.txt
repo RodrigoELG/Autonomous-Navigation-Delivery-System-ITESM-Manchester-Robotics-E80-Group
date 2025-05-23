@@ -22,4 +22,6 @@ Distancia Chebyshev: Para movimientos diagonales (king's move en ajedrez) => max
 Funcion de Evaluacion (f(n)): Costo Total Estimado:    
 f(n)=g(n)+h(n)
 Esta es la metrica que A* utiliza para decidir que nodo explorar a continuacion. 
-Siempre elige el nodo en la lista de nodos "abiertos" (los que han sido descubiertos pero no explorados completamente) con el valor f(n) mas bajo.
+Siempre elige el nodo en la lista de nodos "abiertos" (los que han sido descubiertos pero no explorados completamente) con el valor f(n) mas bajo. 
+
+A* ruta a largo plazo, bug utilizar por que una vez que haz agarrado objetos el mapa cambia y si usaramos A* habria que recalcular todo 
