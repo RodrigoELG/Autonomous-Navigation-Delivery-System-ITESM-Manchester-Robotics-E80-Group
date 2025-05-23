@@ -1,0 +1,25 @@
+Entendiendo el Algoritmo A* (A-Star)
+
+El algoritmo A* es un algoritmo de busqueda de "el mejor primero" (best-first search).
+Encuentra el camino de menor costo desde un nodo inicial hasta un nodo objetivo en un grafo o una cuadricula. 
+Es una extension del algoritmo de Dijkstra que incorpora una funcion heuristica para guiar la busqueda de manera mas eficiente.
+
+Nodos y Conexiones: En el PuzzleBot, los "nodos" serian puntos discretos en el espacio (celdas o cuadriculas del mapa o waypoints). 
+Las "conexiones" serian los posibles movimientos entre esos nodos (por ejemplo, avanzar de una celda a otra, girar etc).
+
+Para cada nodo n, g(n) representa el costo acumulado conocido para llegar a ese nodo desde el nodo inicial.
+La distancia recorrida, el tiempo, el consumo de energia, etc. 
+En nuestro caso es el numero de pasos.
+
+Heuristica (h(n)): Estimacion del Costo Restante:
+Para cada nodo n, h(n) es una funcion que estima el costo para llegar desde ese nodo hasta el nodo objetivo.
+Una heuristica es buena si nunca sobreestima el costo real para llegar al objetivo. Es decir, h(n) < costo real de n al objetivo. 
+
+Distancia Manhattan: Para movimientos ortogonales (arriba, abajo, izquierda, derecha) en una cuadricula => |xn - xobjetivo| + |yn - objetivo|
+Distancia Euclidiana: Para movimientos en cualquier direccion en una cuadricula o espacio continuo => (xn - xobjetivo)^2 + (yn - yobjetivo)^2
+Distancia Chebyshev: Para movimientos diagonales (king's move en ajedrez) => max(|xn - xobjetivo| , |yn - yobjetivo|)
+
+Funcion de Evaluacion (f(n)): Costo Total Estimado:    
+f(n)=g(n)+h(n)
+Esta es la metrica que A* utiliza para decidir que nodo explorar a continuacion. 
+Siempre elige el nodo en la lista de nodos "abiertos" (los que han sido descubiertos pero no explorados completamente) con el valor f(n) mas bajo.
