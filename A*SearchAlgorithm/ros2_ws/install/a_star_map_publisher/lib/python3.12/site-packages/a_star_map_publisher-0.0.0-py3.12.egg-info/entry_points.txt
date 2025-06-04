@@ -1,0 +1,3 @@
+[console_scripts]
+a_star_node = a_star_map_publisher.a_star_node:main
+map_publisher = a_star_map_publisher.map_publisher:main

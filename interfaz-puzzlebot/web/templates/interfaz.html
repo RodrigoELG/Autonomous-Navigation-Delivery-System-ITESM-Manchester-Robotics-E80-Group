@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Monitoreo Robot E80 - ROS2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Colores de la empresa E80 (tonos de azul) */
+      --e80-blue-dark: #0a2e5d;
+      --e80-blue-medium: #1a4f8b;
+      --e80-blue-light: #b3d9ff;
+      --e80-blue-xlight: #e0f2f7;
+      --text-dark: #333;
+      --text-light: #f4f4f4;
+      --background-primary: #f8fbfc; /* Un blanco azulado muy sutil */
+      --panel-bg: #ffffff;
+      --border-color: #e0e0e0;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-medium: rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--background-primary);
+      color: var(--text-dark);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: var(--e80-blue-dark);
+      color: var(--text-light);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px var(--shadow-medium);
+      z-index: 10;
+    }
+
+    .header .logo {
+      height: 40px; /* Ajusta según el tamaño de tu logo */
+      width: auto;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .header .tagline {
+      font-size: 0.9em;
+      opacity: 0.8;
+      margin-left: 20px;
+    }
+
+    /* Main Container */
+    .container {
+      display: grid;
+      grid-template-columns: 3fr 1fr; /* Video panel takes 3 parts, status panel 1 part */
+      gap: 25px;
+      flex-grow: 1;
+      padding: 25px;
+      max-width: 1600px; /* Limita el ancho máximo del contenido */
+      margin: 25px auto; /* Centra el contenedor */
+      box-shadow: 0 0 20px var(--shadow-light);
+      border-radius: 12px;
+      background: var(--panel-bg);
+    }
+
+    /* Video Panel */
+    .video-panel {
+      background: #111; /* Fondo oscuro para el stream de video */
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4);
+      position: relative; /* Para posicionar el botón de video stream */
+      overflow: hidden; /* Asegura que nada se salga del panel */
+    }
+
+    .video-panel h2 {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 1.6em;
+      color: var(--e80-blue-light);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    #videoStream {
+      max-width: 100%;
+      height: auto; /* Permite que la altura se ajuste proporcionalmente */
+      display: block; /* Elimina espacio extra debajo de la imagen */
+      border: 3px solid var(--e80-blue-medium);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    #videoStream:hover {
+      transform: scale(1.005);
+    }
+
+    .video-stream-button {
+      background-color: var(--e80-blue-medium);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      margin-top: 20px; /* Espacio debajo del título */
+      text-decoration: none; /* Si se usa como <a> */
+      display: inline-block; /* Si se usa como <a> */
+    }
+
+    .video-stream-button:hover {
+      background-color: var(--e80-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Status Panel */
+    .status-panel {
+      background: var(--panel-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      overflow-y: auto; /* Para tablas largas */
+    }
+
+    .status-panel h2 {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: var(--e80-blue-dark);
+      border-bottom: 2px solid var(--e80-blue-xlight);
+      padding-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate; /* Permite border-radius en celdas */
+      border-spacing: 0; /* Elimina espacio entre celdas */
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--e80-blue-light);
+      color: var(--e80-blue-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      position: sticky; /* Encabezado fijo al hacer scroll */
+      top: 0;
+      z-index: 1;
+    }
+
+    /* Bordes redondeados para la primera y última celda de la cabecera */
+    th:first-child { border-top-left-radius: 8px; }
+    th:last-child { border-top-right-radius: 8px; }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--e80-blue-xlight); /* Zebra striping */
+    }
+
+    tbody tr:hover {
+      background-color: var(--e80-blue-light);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .delivered {
+      color: #28a745; /* Verde para entregado */
+      font-weight: 600;
+    }
+
+    .pending {
+      color: #ffc107; /* Amarillo/naranja para pendiente */
+      font-weight: 600;
+    }
+
+    .error {
+      color: #dc3545; /* Rojo para error */
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--e80-blue-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.85em;
+      box-shadow: 0 -2px 10px var(--shadow-medium);
+      margin-top: 25px; /* Espacio entre el contenido principal y el footer */
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 992px) {
+      .container {
+        grid-template-columns: 1fr; /* Stack panels vertically on smaller screens */
+        padding: 15px;
+        margin: 15px auto;
+      }
+
+      .header h1 {
+        font-size: 1.5em;
+      }
+
+      .header .tagline {
+        display: none; /* Hide tagline on smaller screens */
+      }
+
+      .video-panel, .status-panel {
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 15px;
+      }
+      .header .logo {
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: 1.3em;
+      }
+      th, td {
+        padding: 10px;
+        font-size: 0.85em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="path/to/your/e80_logo.png" alt="E80 Logo" class="logo"> <h1>Sistema de Monitoreo Robot E80</h1>
+    <span class="tagline">Innovación en Automatización y Logística</span>
+  </header>
+
+  <div class="container">
+    <div class="video-panel">
+      <h2>Streaming Cámara del Robot (ROS2)</h2>
+      <img id="videoStream"
+           src="http://<HOST>:8080/stream?topic=/camera/image_raw&type=mjpeg"
+           alt="Video Stream" />
+      <a href="#" class="video-stream-button" onclick="return false;">Ver Video en Vivo</a>
+    </div>
+    <div class="status-panel">
+      <h2>Status de Entregas</h2>
+      <table id="statusTable">
+        <thead>
+          <tr>
+            <th>Trazador</th>
+            <th>Cajas entregadas</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © 2025 E80 Group. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Función para cargar el estatus desde una API REST (puede ser un nodo ROS2 con FastAPI, Express, etc.)
+    async function fetchStatus() {
+      try {
+        const response = await fetch('/api/delivery-status'); // Asegúrate de que esta API esté disponible
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        const tbody = document.querySelector('#statusTable tbody');
+        tbody.innerHTML = ''; // Limpiar filas existentes
+
+        if (data.length === 0) {
+          const row = document.createElement('tr');
+          const cell = document.createElement('td');
+          cell.setAttribute('colspan', '3');
+          cell.textContent = 'No hay datos de entregas disponibles.';
+          cell.style.textAlign = 'center';
+          cell.style.padding = '20px';
+          cell.style.fontStyle = 'italic';
+          cell.style.color = '#555';
+          row.appendChild(cell);
+          tbody.appendChild(row);
+          return;
+        }
+
+        data.forEach(item => {
+          const row = document.createElement('tr');
+          const trailerCell = document.createElement('td');
+          trailerCell.textContent = item.trailer || 'N/A';
+          const countCell = document.createElement('td');
+          countCell.textContent = item.deliveredBoxes !== undefined ? item.deliveredBoxes : 'N/A';
+          const statusCell = document.createElement('td');
+          statusCell.textContent = item.status || 'Desconocido';
+
+          // Asigna clases CSS basadas en el estado
+          if (item.status === 'Entregado') {
+            statusCell.className = 'delivered';
+          } else if (item.status === 'Pendiente') {
+            statusCell.className = 'pending';
+          } else if (item.status === 'Error') {
+            statusCell.className = 'error';
+          } else {
+            statusCell.className = ''; // No especial para otros estados
+          }
+
+          row.append(trailerCell, countCell, statusCell);
+          tbody.appendChild(row);
+        });
+      } catch (err) {
+        console.error('Error al obtener el status:', err);
+        const tbody = document.querySelector('#statusTable tbody');
+        tbody.innerHTML = '';
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.setAttribute('colspan', '3');
+        cell.textContent = 'Error al cargar los datos. Intente de nuevo más tarde.';
+        cell.style.textAlign = 'center';
+        cell.style.color = 'red';
+        row.appendChild(cell);
+        tbody.appendChild(row);
+      }
+    }
+
+    // Código para simular datos si la API no está disponible (para pruebas)
+    function simulateStatusData() {
+      const statuses = ['Entregado', 'Pendiente', 'Pendiente', 'Entregado', 'Error'];
+      const data = [];
+      for (let i = 1; i <= 5; i++) {
+        data.push({
+          trailer: `Trazador ${String(i).padStart(2, '0')}`,
+          deliveredBoxes: Math.floor(Math.random() * 20) + 5,
+          status: statuses[Math.floor(Math.random() * statuses.length)]
+        });
+      }
+      return data;
+    }
+
+    // Para usar datos simulados, descomenta la línea de fetchStatus y comenta la de fetch real
+    async function fetchStatusSimulated() {
+        try {
+            const data = simulateStatusData();
+            const tbody = document.querySelector('#statusTable tbody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+              const row = document.createElement('tr');
+              const cell = document.createElement('td');
+              cell.setAttribute('colspan', '3');
+              cell.textContent = 'No hay datos de entregas disponibles.';
+              cell.style.textAlign = 'center';
+              cell.style.padding = '20px';
+              cell.style.fontStyle = 'italic';
+              cell.style.color = '#555';
+              row.appendChild(cell);
+              tbody.appendChild(row);
+              return;
+            }
+
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                const trailerCell = document.createElement('td');
+                trailerCell.textContent = item.trailer || 'N/A';
+                const countCell = document.createElement('td');
+                countCell.textContent = item.deliveredBoxes !== undefined ? item.deliveredBoxes : 'N/A';
+                const statusCell = document.createElement('td');
+                statusCell.textContent = item.status || 'Desconocido';
+
+                if (item.status === 'Entregado') {
+                    statusCell.className = 'delivered';
+                } else if (item.status === 'Pendiente') {
+                    statusCell.className = 'pending';
+                } else if (item.status === 'Error') {
+                    statusCell.className = 'error';
+                } else {
+                    statusCell.className = '';
+                }
+
+                row.append(trailerCell, countCell, statusCell);
+                tbody.appendChild(row);
+            });
+        } catch (err) {
+            console.error('Error al obtener el status simulado:', err);
+        }
+    }
+
+
+    // Actualizar cada 5 segundos
+    // setInterval(fetchStatus, 5000); // Para usar la API real
+    setInterval(fetchStatusSimulated, 5000); // Para usar datos simulados (para desarrollo/prueba)
+
+    // Carga inicial
+    // fetchStatus(); // Para usar la API real
+    fetchStatusSimulated(); // Para usar datos simulados (para desarrollo/prueba)
+
+  </script>
+</body>
+</html>

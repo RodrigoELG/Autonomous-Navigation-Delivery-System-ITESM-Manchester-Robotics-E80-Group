@@ -1,0 +1,36 @@
+//author AECL
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+package RPCDemoPkg;
+
+option go_package = "example.com/rest-gateway-demo/protos";
+
+service RPCDemo {
+    // Obtiene las coordenadas existentes
+    rpc GetMultCoords(google.protobuf.Empty) returns (MultCoords) {
+        option (google.api.http) = {
+            post: "/restgatewaydemo/getmultcoords"
+            body: "*"
+        };
+    }
+
+    // RPC para obtener el frame de cámara comprimido
+    rpc GetImage(google.protobuf.Empty) returns (ImageData) {
+        option (google.api.http) = {
+            get: "/restgatewaydemo/getimage"
+        };
+    }
+}
+
+message MultCoords {
+    repeated double values = 1 [packed=true];
+}
+
+// Mensaje para transportar los bytes JPEG
+message ImageData {
+    bytes data = 1;
+}

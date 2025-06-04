@@ -1,0 +1,44 @@
+[0.642s] Invoking command in '/home/rodrigo/ros2_ws/src/A*SEARCHALGORITHM/a_star_map_publisher': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/rodrigo/ros2_ws/build/a_star_map_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/a_star_map_publisher build --build-base /home/rodrigo/ros2_ws/build/a_star_map_publisher/build install --record /home/rodrigo/ros2_ws/build/a_star_map_publisher/install.log --single-version-externally-managed install_data
+[0.907s] running egg_info
+[0.907s] creating ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info
+[0.928s] writing ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/PKG-INFO
+[0.928s] writing dependency_links to ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/dependency_links.txt
+[0.928s] writing entry points to ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/entry_points.txt
+[0.928s] writing requirements to ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/requires.txt
+[0.928s] writing top-level names to ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/top_level.txt
+[0.929s] writing manifest file '../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/SOURCES.txt'
+[0.969s] reading manifest file '../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/SOURCES.txt'
+[0.970s] writing manifest file '../../../build/a_star_map_publisher/a_star_map_publisher.egg-info/SOURCES.txt'
+[0.970s] running build
+[0.970s] running build_py
+[0.970s] creating /home/rodrigo/ros2_ws/build/a_star_map_publisher/build
+[0.970s] creating /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib
+[0.970s] creating /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher
+[0.970s] copying a_star_map_publisher/map_publisher.py -> /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher
+[0.970s] copying a_star_map_publisher/a_star_node.py -> /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher
+[0.971s] copying a_star_map_publisher/a_star_planner.py -> /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher
+[0.971s] copying a_star_map_publisher/__init__.py -> /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher
+[0.971s] running install
+[0.976s] running install_lib
+[0.997s] creating /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher
+[0.997s] copying /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher/map_publisher.py -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher
+[0.997s] copying /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher/a_star_node.py -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher
+[0.997s] copying /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher/a_star_planner.py -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher
+[0.997s] copying /home/rodrigo/ros2_ws/build/a_star_map_publisher/build/lib/a_star_map_publisher/__init__.py -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher
+[0.998s] byte-compiling /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher/map_publisher.py to map_publisher.cpython-312.pyc
+[0.999s] byte-compiling /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher/a_star_node.py to a_star_node.cpython-312.pyc
+[1.000s] byte-compiling /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher/a_star_planner.py to a_star_planner.cpython-312.pyc
+[1.001s] byte-compiling /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher/__init__.py to __init__.cpython-312.pyc
+[1.002s] running install_data
+[1.002s] creating /home/rodrigo/ros2_ws/install/a_star_map_publisher/share/ament_index
+[1.002s] creating /home/rodrigo/ros2_ws/install/a_star_map_publisher/share/ament_index/resource_index
+[1.002s] creating /home/rodrigo/ros2_ws/install/a_star_map_publisher/share/ament_index/resource_index/packages
+[1.002s] copying resource/a_star_map_publisher -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/share/ament_index/resource_index/packages
+[1.002s] copying package.xml -> /home/rodrigo/ros2_ws/install/a_star_map_publisher/share/a_star_map_publisher
+[1.002s] running install_egg_info
+[1.024s] Copying ../../../build/a_star_map_publisher/a_star_map_publisher.egg-info to /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages/a_star_map_publisher-0.0.0-py3.12.egg-info
+[1.025s] running install_scripts
+[1.161s] Installing a_star_node script to /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/a_star_map_publisher
+[1.161s] Installing map_publisher script to /home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/a_star_map_publisher
+[1.162s] writing list of installed files to '/home/rodrigo/ros2_ws/build/a_star_map_publisher/install.log'
+[1.189s] Invoked command in '/home/rodrigo/ros2_ws/src/A*SEARCHALGORITHM/a_star_map_publisher' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/rodrigo/ros2_ws/build/a_star_map_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/rodrigo/ros2_ws/install/a_star_map_publisher/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/a_star_map_publisher build --build-base /home/rodrigo/ros2_ws/build/a_star_map_publisher/build install --record /home/rodrigo/ros2_ws/build/a_star_map_publisher/install.log --single-version-externally-managed install_data
