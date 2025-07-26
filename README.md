@@ -2,11 +2,13 @@ Autonomous Navigation & Delivery System – ITESM + Manchester Robotics + E80 Gr
 Feb 2025 – Jul 2025 | ROS2, OpenCV, YOLOv8, Jetson Nano, LiDAR, gRPC
 
 • Objective: Build a full-stack delivery robot for trailer docking using SLAM, path planning, obstacle avoidance, and computer vision.
+
 • Solution:
 → Designed and implemented an A* path planner and Tangent Bug algorithm in ROS2 with obstacle inflation and safety heuristics.
 → Developed a vision-based alignment system using ORB features, homography, and real-time tracking to center the robot on trailer targets.
 → Integrated ROS2 with a web dashboard using gRPC for camera streaming and delivery status.
 → Tuned PD control loops and inflated occupancy maps for safe motion execution.
+
 • Impact: Achieved autonomous package delivery to target trailers with high alignment precision. System successfully handled real-world uncertainty (noise, lighting, geometry) with robust CV + planning integration.
 
 Integración de robótica y sistemas inteligentes
